@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content%}
+<div id="login" class="container-fluid">
+<div class="row">
+<div id="tron" class="jumbotron container col-8 offset-2 text-center" style=" height:400px; width:400px; opacity:0.9;" >
+  <form class="form-horizontal row " role="form" action="" method="post">
+{% csrf_token %}
+<div class="col-12">
+<h1 class="lead">Login</h1>
+ 
+  <p class="form-group">
+ 	{{ form.username|as_crispy_field }}  
+ </p>
+  <p class="form-group">
+ 	{{ form.password|as_crispy_field}}  
+ </p>
+ </div>
+
+
+  <div style="margin-top: 10px;" class="col-12">
+  	<input type="submit" class="btn btn-primary btn-sm" value="Login"/>
+	  <p style="" class="">Not a Memeber Yet ? 
+<p><a class="btn bg-info btn-sm" href="{% url 'signup'%}">Register</a></p>
+  </div>
+
+</form>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+{% endblock content%}

@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content%}
+
+<div class="container" style="margin-top: 70px;margin-bottom: 70px;">
+    
+
+    
+    <div class="card " style="text-align: center;">
+
+	<div class="card-body bg-light">
+<p class="lead">Plain Text: <br/>{{tf}}</p>
+		
+	</div>
+
+	
+</div>
+
+<div class="container jumbotron" style="margin-top:20px;">
+    {% for mes in mess %}
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <p>Sender: {{ mes.sender.email}}</p>
+            <textarea readonly rows="10" cols="30" name="tad" >{{ mes.Message }} </textarea>
+            <textarea rows="10" cols="30" name="pr" placeholder="Enter Private Key"></textarea>
+            {% comment %} <input type="submit" name="de" class="btn-sm btn-success" value="Decrypt"/> {% endcomment %}
+            <input type="submit" class="btn btn-success btn-sm" name="de" value="Decrypt"/>
+        </form>
+
+        <hr class="my-4">
+
+    </div>
+    
+    {% endfor %}
+
+</div>
+
+    
+</div>
+
+
+{% endblock content%}

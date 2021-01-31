@@ -1,0 +1,49 @@
+{% extends "base.html" %} 
+{% load crispy_forms_tags %} 
+{% block content%}
+
+<div class='container jumbotron' style="margin-top: 70px;margin-bottom: 70px; ">
+	<h2>Create your account Here.</h2>
+
+<form class="form-horizontal " role="form" action="" method="post">
+{% csrf_token %}
+
+ 
+  <p class="form-group" style="text-align: center;">
+ 	{{ form.firstname|as_crispy_field }}  
+ </p>
+  <p class="form-group" style="text-align: center;">
+ 	{{ form.lastname|as_crispy_field}}  
+ </p>
+   <p class="form-group" style="text-align: center;">
+ 	{{ form.email|as_crispy_field}}  
+ </p>
+    <p class="form-group" style="text-align: center;">
+ 	{{ form.password|as_crispy_field}}  
+ </p>
+    <p class="form-group" style="text-align: center;">
+ 	{{ form.public_key|as_crispy_field}}  
+ </p>
+
+  <div style="margin-top: 10px;">
+  <a  class="btn btn-info btn-sm" href="{% url 'gen' %}" target="_blank">Generate Keys</a>
+  	
+  </div>
+  <div style="margin-top: 10px;">
+  <input type="submit" class="btn btn-primary btn-sm" value="Register"/>
+  </div>
+
+</form>
+
+	
+	
+
+	  <p style="" class="">Already a Memeber  ? 
+<p><a class="btn bg-info btn-sm" href="{% url 'login'%}">Login</a></p>
+
+</div>
+
+
+{% endblock content%}
+
+
